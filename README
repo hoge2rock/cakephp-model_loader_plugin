@@ -1,0 +1,15 @@
+How to use this plugin:
+
+1. Move model_loader directory into app/plugins directory.
+
+2. Add actsAs property like below to AppModel or any Model class in which you want to use this feature.
+	var $actsAs = array('ModelLoader.ModelLoader');
+
+3. Now you can load model from any method inside Model class like this.
+	$this->loadModel('Hoge');
+	$this->Hoge->find('list');
+
+	No matter how many times you call loadModel(), target model is instantiated only once.
+	For subsequent call, loadModel() returns the referrence of the same instance.
+	So you don't need to mind about the performance so seriously.
+	Feel free to call this method as much as you like.

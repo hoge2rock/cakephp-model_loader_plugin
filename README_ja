@@ -1,0 +1,14 @@
+使い方
+
+1. model_loaderディレクトリをapp/pluginsディレクトリの中に移動する。
+
+2. 好きなモデルまたはAppModelに下記の様にactsAsプロパティを追加する。
+	var $actsAs = array('ModelLoader.ModelLoader');
+
+3. あとはこんな感じで使うだけ。
+	$this->loadModel('Hoge');
+	$this->Hoge->find('list');
+
+	loadModel()メソッドは呼ばれる度にモデルのインスタンスが作られるわけではなく、
+	既にインスタンスが有ればその参照を返すだけなのでオーバーヘッドもない。
+	パフォーマンスのことを気にせずジャンジャン使いましょう。
